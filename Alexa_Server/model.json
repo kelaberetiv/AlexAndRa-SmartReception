@@ -1,0 +1,120 @@
+{
+    "languageModel": {
+        "invocationName": "reception",
+        "intents": [
+            {
+                "name": "AMAZON.CancelIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.HelpIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.StopIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "ConnectToEmployeeIntent",
+                "slots": [
+                    {
+                        "name": "EmployeeName",
+                        "type": "EmployeeName"
+                    }
+                ],
+                "samples": [
+                    "connect me to {EmployeeName}"
+                ]
+            }
+        ],
+        "types": {
+    "languageModel": {
+        "invocationName": "reception",
+        "intents": [
+            {
+                "name": "AMAZON.CancelIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.HelpIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "AMAZON.StopIntent",
+                "slots": [],
+                "samples": []
+            },
+            {
+                "name": "ConnectToEmployeeIntent",
+                "slots": [
+                    {
+                        "name": "EmployeeName",
+                        "type": "EmployeeName"
+                    }
+                ],
+                "samples": [
+                    "connect me to {EmployeeName}"
+                ]
+            }
+        ],
+        "types": [
+          {
+            "name": "EmployeeName",
+            "values": [
+              {
+                "id": "",
+                "name": {
+                  "value": "Abu Mathew Thoppan",
+                  "synonyms": [
+                    "abu",
+                    " thoppan",
+                    " abu thoppan"
+                ]
+              }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "Peter Tan Kok Seng",
+              "synonyms": [
+                "peter",
+                "tan",
+                "kok",
+                "seng",
+                "peter tan",
+                " peter kok"
+            ]
+          }
+      },
+      {
+        "id": "",
+        "name": {
+          "value": "Ryzal Kamis",
+          "synonyms": [
+            "ryzal",
+            " kamis"
+        ]
+      }
+  },
+  {
+    "id": "",
+    "name": {
+      "value": "Sengmeng Koo",
+      "synonyms": [
+        "sengmeng",
+        "koo"
+    ]
+  }
+}
+]
+        }
+    ]
+    }
+}
+    }
+}

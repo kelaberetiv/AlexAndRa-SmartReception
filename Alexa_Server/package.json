@@ -1,0 +1,9 @@
+{
+  "name": "alexa-skill-kit-sdk-howtoskill",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "alexa-sdk": "^1.0.10",
+    "firebase": "^4.10.0"
+  }
+}

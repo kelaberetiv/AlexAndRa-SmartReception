@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Abu Mathew Thoppan">
+
+    <title>Smart Reception Console | Test</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+            padding-top: 54px;
+        }
+
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script>
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "",
+            authDomain: "",
+            databaseURL: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: ""
+        };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+        /*
+                function CreateVisitorNotification(employeename = '', visitorname = '') {
+                    return database.ref('/people/' + employeename).once("value").then(function (snapshot) {
+                        var timestamp = new Date().getTime();
+                        return database.ref('visitors/' + timestamp).set({
+                            TimeStamp: timestamp,
+                            EmployeeName: employeename,
+                            VisitorName: visitorname,
+                            DeviceId: snapshot.val().DeviceId,
+                            ResponseStatus: 'AwaitingResponse' // (AwaitingResponse | ResponseInCall | ResponseInPerson)
+                        }).catch(() => { console.log("error"); });;
+                    }).catch(() => { console.log("error"); });
+                }
+        
+                CreateVisitorNotification('Sengmeng Koo').then(() => {
+                    console.log('Success');
+                });
+        */
+        var visitorsRef = database.ref('visitors');
+        visitorsRef.on('child_added', function (data) {
+            if (data.val().ResponseStatus == 'AwaitingResponse') {
+                if ('speechSynthesis' in window) {
+                    var speech = new SpeechSynthesisUtterance(
+                        'Hey ' + data.val().EmployeeName + ", You have got a visitor.");
+                    speech.lang = 'en-US';
+                    speech.voice = window.speechSynthesis.getVoices()[0];
+                    window.speechSynthesis.speak(speech);
+                    database.ref('visitors/' + data.val().TimeStamp).update({ ResponseStatus: 'Announced' });
+                }
+                console.log(data.val());
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/aisingapore_hori_logo.png" height="30px" /> Smart Reception </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Console Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="test.html">Test
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5">Smart Reception Test</h1>
+                <p class="lead">Test how it works!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
