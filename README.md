@@ -1,4 +1,4 @@
-# AISG Smart Reception
+# AlexAndRa Smart Reception
 
 Smart Reception for AI Singapore is a voice assisted AI Receptionist using Alexa.
 
