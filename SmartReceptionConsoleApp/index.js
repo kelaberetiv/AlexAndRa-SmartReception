@@ -1,11 +1,11 @@
 // Initialize Firebase DB
 var config = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
+    apiKey: "AIzaSyADf9J0ND1fSEOskvu-W7yyJBzieSRO8lI",
+    authDomain: "alexandra-smart-reception.firebaseapp.com",
+    databaseURL: "https://alexandra-smart-reception.firebaseio.com",
+    projectId: "alexandra-smart-reception",
     storageBucket: "",
-    //messagingSenderId: ""
+    messagingSenderId: "771766531274"
 };
 firebase.initializeApp(config);
 var database = firebase.database();

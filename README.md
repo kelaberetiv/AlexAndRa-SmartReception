@@ -13,4 +13,8 @@ The AISG Smart Reception Project has 3 sub-projects.
 2. Console Web App (Web app to manage people and devices )
 3. Standalone Routing Server (Bluetooth routing server to communicate with alexa devices)
 
+### Setup Notes
+- Open the Console Web App (index.html) and add users. This automatically updates the database (https://alexandra-smart-reception.firebaseio.com).
+- Add the physical address for the device associated with each user.
+
 Go through the code for better understanding!
